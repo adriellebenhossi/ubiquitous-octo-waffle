@@ -1432,7 +1432,7 @@
 
   @media (min-width: 640px) {
     .secret-textarea-mobile {
-      min-height: 160px !important;
+      min-height: 120px !important;
     }
   }
 
