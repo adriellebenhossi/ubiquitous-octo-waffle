@@ -1,0 +1,14 @@
+[deployment]
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+
+[run]
+command = "npm run dev"
+
+[[workflows]]
+name = "Start application"
+command = "npm run dev"
+
+[[workflows]]
+name = "dev"
+command = "npm run dev"

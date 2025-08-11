@@ -1,0 +1,69 @@
+# Dependências e cache
+node_modules
+npm-debug.log*
+.npm
+.pnpm-debug.log*
+
+# Build outputs locais
+dist
+build
+.next
+
+# Arquivos de desenvolvimento
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Git
+.git
+.gitignore
+README.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage
+.nyc_output
+
+# Temporary folders
+tmp
+temp
+
+# Optional REPL history
+.node_repl_history
+
+# ESLint cache
+.eslintcache
+
+# Parcel-bundler cache
+.cache
+.parcel-cache
+
+# Replit specific
+.replit
+replit.md
+replit.nix
+
+# Fly.io specific
+fly.toml
+.fly
