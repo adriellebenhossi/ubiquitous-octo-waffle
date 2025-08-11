@@ -1427,7 +1427,7 @@
 
   /* Secret textarea mobile height */
   .secret-textarea-mobile {
-    min-height: 400px !important;
+    min-height: 500px !important;
   }
 
   @media (min-width: 640px) {
