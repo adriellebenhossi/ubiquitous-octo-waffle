@@ -63,6 +63,13 @@ const getDefaultSectionColors = (sectionId: string) => {
       gradientDirection: "to-br",
       opacity: 1
     },
+    specialties: {
+      backgroundColor: "#fffbeb",
+      backgroundType: "pattern" as const,
+      gradientColors: ["#fffbeb", "#fef3c7"],
+      gradientDirection: "to-br",
+      opacity: 1
+    },
     services: {
       backgroundColor: "#ffffff",
       backgroundType: "pattern" as const,
@@ -126,6 +133,7 @@ export function ModernSectionColorManager({ configs }: ModernSectionColorManager
   const sections = [
     { id: "hero", name: "Principal", icon: Home, color: "from-blue-500 to-cyan-500", description: "Primeira seção" },
     { id: "about", name: "Sobre", icon: User, color: "from-purple-500 to-pink-500", description: "Informações pessoais" },
+    { id: "specialties", name: "Especialidades", icon: Sparkles, color: "from-amber-500 to-yellow-500", description: "Áreas de atuação" },
     { id: "services", name: "Serviços", icon: Briefcase, color: "from-green-500 to-emerald-500", description: "Lista de atendimentos" },
     { id: "testimonials", name: "Depoimentos", icon: MessageSquare, color: "from-orange-500 to-red-500", description: "Avaliações de pacientes" },
     { id: "articles", name: "Artigos", icon: BookOpen, color: "from-blue-600 to-indigo-600", description: "Publicações científicas" },
