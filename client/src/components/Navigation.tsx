@@ -284,15 +284,18 @@ export function Navigation() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-25" onClick={() => setIsMobileMenuOpen(false)} />
-          <div className="fixed top-0 right-0 w-full max-w-xs h-full bg-white shadow-xl z-50">
+          <div 
+            className="fixed inset-0 backdrop-blur-sm bg-white/20 bg-opacity-30" 
+            onClick={() => setIsMobileMenuOpen(false)} 
+          />
+          <div className="fixed top-0 right-0 w-full max-w-xs h-full bg-white/95 backdrop-blur-md shadow-xl z-50 border-l border-white/20">
             <div className="p-6 pt-20">
-              <nav className="space-y-6">
+              <nav className="space-y-4">
                 {navigationSections.map((section) => (
                   <button
                     key={section.key}
                     onClick={() => scrollToSection(section.id)}
-                    className="block w-full text-left text-gray-600 hover:text-purple-soft transition-colors duration-300 py-2"
+                    className="block w-full text-left text-gray-700 hover:text-purple-soft transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/30 backdrop-blur-sm border border-transparent hover:border-white/20"
                   >
                     {section.name}
                   </button>
