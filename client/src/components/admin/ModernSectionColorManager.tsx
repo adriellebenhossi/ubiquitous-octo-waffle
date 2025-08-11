@@ -63,13 +63,6 @@ const getDefaultSectionColors = (sectionId: string) => {
       gradientDirection: "to-br",
       opacity: 1
     },
-    specialties: {
-      backgroundColor: "#fffbeb",
-      backgroundType: "pattern" as const,
-      gradientColors: ["#fffbeb", "#fef3c7"],
-      gradientDirection: "to-br",
-      opacity: 1
-    },
     services: {
       backgroundColor: "#ffffff",
       backgroundType: "pattern" as const,
@@ -129,11 +122,10 @@ export function ModernSectionColorManager({ configs }: ModernSectionColorManager
   const queryClient = useQueryClient();
   const [activeSection, setActiveSection] = useState("hero");
 
-  // Seções disponíveis com design moderno (ordem conforme versão original)
+  // Seções disponíveis com design moderno
   const sections = [
     { id: "hero", name: "Principal", icon: Home, color: "from-blue-500 to-cyan-500", description: "Primeira seção" },
-    { id: "about", name: "Sobre", icon: User, color: "from-purple-500 to-pink-500", description: "Informações pessoais" },
-    { id: "specialties", name: "Especialidades", icon: Sparkles, color: "from-amber-500 to-yellow-500", description: "Áreas de atuação" },
+    { id: "about", name: "Sobre", icon: User, color: "from-purple-500 to-pink-500", description: "Informações pessoais e especialidades" },
     { id: "articles", name: "Artigos", icon: BookOpen, color: "from-blue-600 to-indigo-600", description: "Publicações científicas" },
     { id: "gallery", name: "Galeria", icon: Camera, color: "from-pink-500 to-rose-500", description: "Fotos do consultório" },
     { id: "services", name: "Serviços", icon: Briefcase, color: "from-green-500 to-emerald-500", description: "Lista de atendimentos" },
