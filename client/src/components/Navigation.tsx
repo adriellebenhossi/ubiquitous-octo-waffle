@@ -31,10 +31,13 @@ export function Navigation() {
   // Hook para verificar visibilidade das seções
   const { 
     isAboutVisible, 
+    isArticlesVisible,
+    isPhotoCarouselVisible,
     isServicesVisible, 
     isTestimonialsVisible, 
     isFaqVisible,
-    isContactVisible 
+    isContactVisible,
+    isInspirationalVisible
   } = useSectionVisibility();
 
   // Extrair a imagem personalizada do hero se disponível
@@ -44,11 +47,81 @@ export function Navigation() {
   // Extrair CFP das configurações
   const generalInfo = configs?.find((c: any) => c.key === 'general_info')?.value as any || {};
   const currentCrp = generalInfo.crp || "08/123456";
+  
+  // Buscar configuração de ordem das seções
+  const sectionOrderConfig = configs?.find((c: any) => c.key === 'section_order')?.value as Record<string, number> || {};
 
   // Estado para controlar se a página foi rolada (muda aparência da nav)
   const [isScrolled, setIsScrolled] = useState(false);
   // Estado para controlar se menu mobile está aberto
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Definir seções de navegação com ordem dinâmica
+  const navigationSections = [
+    {
+      key: 'hero',
+      id: 'home',
+      name: generalInfo.navHome || 'Início',
+      visible: true,
+      order: sectionOrderConfig.hero ?? 0
+    },
+    {
+      key: 'about',
+      id: 'about',
+      name: generalInfo.navAbout || 'Sobre',
+      visible: isAboutVisible,
+      order: sectionOrderConfig.about ?? 1
+    },
+    {
+      key: 'articles',
+      id: 'articles',
+      name: generalInfo.navArticles || 'Artigos',
+      visible: isArticlesVisible,
+      order: sectionOrderConfig.articles ?? 2
+    },
+    {
+      key: 'gallery',
+      id: 'gallery',
+      name: generalInfo.navGallery || 'Galeria',
+      visible: isPhotoCarouselVisible,
+      order: sectionOrderConfig.gallery ?? 3
+    },
+    {
+      key: 'services',
+      id: 'services',
+      name: generalInfo.navServices || 'Serviços',
+      visible: isServicesVisible,
+      order: sectionOrderConfig.services ?? 4
+    },
+    {
+      key: 'testimonials',
+      id: 'testimonials',
+      name: generalInfo.navTestimonials || 'Depoimentos',
+      visible: isTestimonialsVisible,
+      order: sectionOrderConfig.testimonials ?? 5
+    },
+    {
+      key: 'faq',
+      id: 'faq',
+      name: generalInfo.navFaq || 'FAQ',
+      visible: isFaqVisible,
+      order: sectionOrderConfig.faq ?? 6
+    },
+    {
+      key: 'contact',
+      id: 'contact',
+      name: generalInfo.navContact || 'Contato',
+      visible: isContactVisible,
+      order: sectionOrderConfig.contact ?? 7
+    },
+    {
+      key: 'inspirational',
+      id: 'inspirational',
+      name: generalInfo.navInspirational || 'Citação',
+      visible: isInspirationalVisible,
+      order: sectionOrderConfig.inspirational ?? 8
+    }
+  ].filter(section => section.visible).sort((a, b) => a.order - b.order);
 
   // Effect para detectar scroll da página
   useEffect(() => {
@@ -186,52 +259,15 @@ export function Navigation() {
 
             {/* Menu desktop - no canto direito */}
             <div className="hidden md:flex space-x-8 text-sm font-light text-gray-600">
-              <button
-                onClick={() => scrollToSection("home")}
-                className="hover:text-purple-soft transition-colors duration-300"
-              >
-                {generalInfo.navHome || "Início"}
-              </button>
-              {isAboutVisible && (
+              {navigationSections.map((section) => (
                 <button
-                  onClick={() => scrollToSection("about")}
+                  key={section.key}
+                  onClick={() => scrollToSection(section.id)}
                   className="hover:text-purple-soft transition-colors duration-300"
                 >
-                  {generalInfo.navAbout || "Sobre"}
+                  {section.name}
                 </button>
-              )}
-              {isServicesVisible && (
-                <button
-                  onClick={() => scrollToSection("services")}
-                  className="hover:text-purple-soft transition-colors duration-300"
-                >
-                  {generalInfo.navServices || "Serviços"}
-                </button>
-              )}
-              {isTestimonialsVisible && (
-                <button
-                  onClick={() => scrollToSection("testimonials")}
-                  className="hover:text-purple-soft transition-colors duration-300"
-                >
-                  {generalInfo.navTestimonials || "Depoimentos"}
-                </button>
-              )}
-              {isFaqVisible && (
-                <button
-                  onClick={() => scrollToSection("faq")}
-                  className="hover:text-purple-soft transition-colors duration-300"
-                >
-                  {generalInfo.navFaq || "FAQ"}
-                </button>
-              )}
-              {isContactVisible && (
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="hover:text-purple-soft transition-colors duration-300"
-                >
-                  {generalInfo.navContact || "Contato"}
-                </button>
-              )}
+              ))}
             </div>
 
             {/* Botão menu mobile */}
@@ -252,52 +288,15 @@ export function Navigation() {
           <div className="fixed top-0 right-0 w-full max-w-xs h-full bg-white shadow-xl z-50">
             <div className="p-6 pt-20">
               <nav className="space-y-6">
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="block w-full text-left text-gray-600 hover:text-purple-soft transition-colors duration-300 py-2"
-                >
-                  {generalInfo.navHome || "Início"}
-                </button>
-                {isAboutVisible && (
+                {navigationSections.map((section) => (
                   <button
-                    onClick={() => scrollToSection("about")}
+                    key={section.key}
+                    onClick={() => scrollToSection(section.id)}
                     className="block w-full text-left text-gray-600 hover:text-purple-soft transition-colors duration-300 py-2"
                   >
-                    {generalInfo.navAbout || "Sobre"}
+                    {section.name}
                   </button>
-                )}
-                {isServicesVisible && (
-                  <button
-                    onClick={() => scrollToSection("services")}
-                    className="block w-full text-left text-gray-600 hover:text-purple-soft transition-colors duration-300 py-2"
-                  >
-                    {generalInfo.navServices || "Serviços"}
-                  </button>
-                )}
-                {isTestimonialsVisible && (
-                  <button
-                    onClick={() => scrollToSection("testimonials")}
-                    className="block w-full text-left text-gray-600 hover:text-purple-soft transition-colors duration-300 py-2"
-                  >
-                    {generalInfo.navTestimonials || "Depoimentos"}
-                  </button>
-                )}
-                {isFaqVisible && (
-                  <button
-                    onClick={() => scrollToSection("faq")}
-                    className="block w-full text-left text-gray-600 hover:text-purple-soft transition-colors duration-300 py-2"
-                  >
-                    {generalInfo.navFaq || "FAQ"}
-                  </button>
-                )}
-                {isContactVisible && (
-                  <button
-                    onClick={() => scrollToSection("contact")}
-                    className="block w-full text-left text-gray-600 hover:text-purple-soft transition-colors duration-300 py-2"
-                  >
-                    {generalInfo.navContact || "Contato"}
-                  </button>
-                )}
+                ))}
               </nav>
             </div>
           </div>
