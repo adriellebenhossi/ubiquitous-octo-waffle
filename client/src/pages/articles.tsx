@@ -69,7 +69,7 @@ export default function ArticlesPage() {
   const configs = Array.isArray(sectionConfig) ? sectionConfig : [];
   
   // Usar os mesmos textos da página pública
-  const articlesTitle = configs.find((c: any) => c.key === 'articles_title')?.value || 'Artigos Científicos';
+  const articlesTitle = configs.find((c: any) => c.key === 'articles_title')?.value || 'Artigos científicos';
   const articlesDescription = configs.find((c: any) => c.key === 'articles_description')?.value || 'Explore nossa coleção de pesquisas e estudos em psicologia clínica e comportamental';
   const articlesBadge = configs.find((c: any) => c.key === 'articles_badge')?.value || 'Biblioteca Completa';
   

@@ -107,11 +107,36 @@ export function AboutSectionTextsForm({ configs }: AboutSectionTextsFormProps) {
   return (
     <div className="w-full max-w-full space-y-4 sm:space-y-6">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8">
           
           {/* Grid responsivo principal */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
             
+            {/* Badge (Subtítulo da seção) */}
+            <FormField
+              control={form.control}
+              name="subtitle"
+              render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                    <Type className="w-3 h-3 text-gray-400" />
+                    Badge (subtítulo)
+                  </FormLabel>
+                  <FormControl>
+                    <Input 
+                      placeholder="Sobre mim" 
+                      {...field} 
+                      className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-blue-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                    />
+                  </FormControl>
+                  <FormDescription className="text-xs text-gray-500 bg-gray-50/80 p-2 rounded-lg">
+                    Subtítulo que aparece como badge decorativo
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
             {/* Título da seção */}
             <FormField
               control={form.control}
@@ -119,49 +144,20 @@ export function AboutSectionTextsForm({ configs }: AboutSectionTextsFormProps) {
               render={({ field }) => (
                 <FormItem className="space-y-3">
                   <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-                    <div className="p-1 bg-purple-100 rounded">
-                      <Sparkles className="w-3 h-3 text-purple-600" />
-                    </div>
-                    Título da seção
+                    <Sparkles className="w-3 h-3 text-gray-400" />
+                    Título principal
                   </FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="Dra. Adrielle Benhossi" 
                       {...field} 
-                      className="pl-4 py-3 border-2 border-gray-200 focus:border-purple-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                      className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-purple-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
                     />
                   </FormControl>
                   <FormDescription className="text-xs text-gray-500 bg-purple-50/80 p-2 rounded-lg border border-purple-100">
                     <div className="flex items-center gap-1 flex-wrap">
                       Coloque <Badge variant="outline" className="text-xs">()</Badge> em volta da palavra para aplicar gradiente. Ex: Dra. (Adrielle)
                     </div>
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            {/* Subtítulo da seção */}
-            <FormField
-              control={form.control}
-              name="subtitle"
-              render={({ field }) => (
-                <FormItem className="space-y-3">
-                  <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-                    <div className="p-1 bg-blue-100 rounded">
-                      <Type className="w-3 h-3 text-blue-600" />
-                    </div>
-                    Subtítulo da seção
-                  </FormLabel>
-                  <FormControl>
-                    <Input 
-                      placeholder="Sobre mim" 
-                      {...field} 
-                      className="pl-4 py-3 border-2 border-gray-200 focus:border-blue-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
-                    />
-                  </FormControl>
-                  <FormDescription className="text-xs text-gray-500 bg-gray-50/80 p-2 rounded-lg">
-                    Subtítulo que aparece como badge decorativo
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -176,16 +172,14 @@ export function AboutSectionTextsForm({ configs }: AboutSectionTextsFormProps) {
             render={({ field }) => (
               <FormItem className="space-y-3">
                 <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-                  <div className="p-1 bg-blue-100 rounded">
-                    <Type className="w-3 h-3 text-blue-600" />
-                  </div>
+                  <Type className="w-3 h-3 text-gray-400" />
                   Título profissional
                 </FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="Psicóloga Clínica CFP 08/123456" 
                     {...field} 
-                    className="pl-4 py-3 border-2 border-gray-200 focus:border-blue-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                    className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-blue-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
                   />
                 </FormControl>
                 <FormDescription className="text-xs text-gray-500 bg-gray-50/80 p-2 rounded-lg">
@@ -203,9 +197,7 @@ export function AboutSectionTextsForm({ configs }: AboutSectionTextsFormProps) {
             render={({ field }) => (
               <FormItem className="space-y-3">
                 <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-                  <div className="p-1 bg-green-100 rounded">
-                    <FileText className="w-3 h-3 text-green-600" />
-                  </div>
+                  <FileText className="w-3 h-3 text-gray-400" />
                   Descrição profissional
                 </FormLabel>
                 <FormControl>
@@ -213,7 +205,7 @@ export function AboutSectionTextsForm({ configs }: AboutSectionTextsFormProps) {
                     placeholder="Com experiência em terapia cognitivo-comportamental, ofereço um espaço seguro e acolhedor para você trabalhar suas questões emocionais..." 
                     rows={5}
                     {...field} 
-                    className="pl-4 py-3 border-2 border-gray-200 focus:border-green-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm resize-none min-h-[120px]"
+                    className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-green-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm resize-none min-h-[120px]"
                   />
                 </FormControl>
                 <FormDescription className="text-xs text-gray-500 bg-green-50/80 p-2 rounded-lg border border-green-100">

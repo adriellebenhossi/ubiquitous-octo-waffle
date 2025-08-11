@@ -1,7 +1,7 @@
 /**
  * ArticlesSection.tsx
  * 
- * Seção de Artigos Científicos na página principal
+ * Seção de artigos científicos na página principal
  * Exibe cards dos últimos artigos publicados
  * Interface moderna e responsiva com badge, autor e data
  * Integração com API de artigos em destaque
@@ -63,7 +63,7 @@ export function ArticlesSection({ className = "" }: ArticlesSectionProps) {
 
   const configs = Array.isArray(sectionConfig) ? sectionConfig : [];
   
-  const articlesTitle = configs.find((c: any) => c.key === 'articles_title')?.value || 'Artigos Científicos';
+  const articlesTitle = configs.find((c: any) => c.key === 'articles_title')?.value || 'Artigos científicos';
   const articlesBadge = configs.find((c: any) => c.key === 'articles_badge')?.value || 'Publicações';
   const articlesDescription = configs.find((c: any) => c.key === 'articles_description')?.value || 'Explore nossas publicações científicas mais recentes, pesquisas e estudos na área da psicologia clínica e comportamental.';
   

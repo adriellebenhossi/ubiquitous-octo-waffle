@@ -79,7 +79,7 @@ export default function ArticlePage() {
 
   useEffect(() => {
     if (article) {
-      document.title = `${article.title} | Artigos Científicos`;
+      document.title = `${article.title} | Artigos científicos`;
     }
   }, [article]);
 

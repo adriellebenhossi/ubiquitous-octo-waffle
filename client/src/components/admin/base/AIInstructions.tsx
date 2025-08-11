@@ -28,7 +28,7 @@ export function AIInstructions({ type, className = "" }: AIInstructionsProps) {
       description: "Use IAs como ChatGPT, Claude ou Grok para converter seus textos em HTML profissional",
       sections: [
         {
-          title: "📝 Formatação de Texto",
+          title: "📝 Formatação de texto",
           prompt: `Por favor, formate este texto para HTML seguindo estas regras:
 
 1. Use apenas tags HTML básicas (p, h1, h2, h3, strong, em, ul, li, ol, br)
@@ -44,7 +44,7 @@ Texto para formatar:
           description: "Use este prompt para converter texto simples em HTML formatado"
         },
         {
-          title: "🔬 Artigo Científico",
+          title: "🔬 Artigo científico",
           prompt: `Converta este artigo científico para HTML seguindo o padrão acadêmico:
 
 REGRAS IMPORTANTES:
@@ -61,7 +61,7 @@ Artigo:
           description: "Para artigos científicos com estrutura acadêmica completa"
         },
         {
-          title: "📚 Bibliografia e Referências",
+          title: "📚 Bibliografia e referências",
           prompt: `Formate estas referências bibliográficas em HTML:
 
 REGRAS:

@@ -371,7 +371,7 @@ export function ArticlesManager() {
           <DialogTrigger asChild>
             <Button className="btn-admin w-full sm:w-auto">
               <Plus className="mr-2 h-4 w-4" />
-              Novo Artigo
+              Novo artigo
             </Button>
           </DialogTrigger>
           
@@ -385,7 +385,7 @@ export function ArticlesManager() {
             <div className="h-full flex flex-col">
               <DialogHeader className="px-3 py-2 sm:px-6 sm:py-4 border-b shrink-0 z-10 bg-white">
                 <DialogTitle className="text-base sm:text-lg md:text-xl">
-                  {editingArticle ? "Editar Artigo" : "Novo Artigo"}
+                  {editingArticle ? "Editar artigo" : "Novo artigo"}
                 </DialogTitle>
                 <DialogDescription className="text-xs sm:text-sm">
                   {editingArticle ? 
@@ -896,7 +896,7 @@ export function ArticlesManager() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
-            <span>Artigos Cadastrados ({articles.length})</span>
+            <span>Artigos cadastrados ({articles.length})</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -909,7 +909,7 @@ export function ArticlesManager() {
             <div className="text-center py-8">
               <Award className="h-12 w-12 text-gray-400 mx-auto mb-4" />
               <p className="text-gray-600">Nenhum artigo cadastrado ainda.</p>
-              <p className="text-sm text-gray-500">Clique em "Novo Artigo" para começar.</p>
+              <p className="text-sm text-gray-500">Clique em "Novo artigo" para começar.</p>
             </div>
           ) : (
             <DragAndDropContainer 

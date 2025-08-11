@@ -67,20 +67,24 @@ export function InspirationalSectionTextsForm({ configs }: InspirationalSectionT
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="subtitle"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Subtítulo/Badge ()</FormLabel>
+            <FormItem className="space-y-3">
+              <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                <Type className="w-3 h-3 text-gray-400" />
+                Subtítulo (badge)
+              </FormLabel>
               <FormControl>
                 <Input 
                   placeholder="INSPIRAÇÃO" 
                   {...field} 
+                  className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-blue-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
                 />
               </FormControl>
-              <FormDescription>
+              <FormDescription className="text-xs text-gray-500 bg-gray-50/80 p-2 rounded-lg">
                 Badge que aparece acima do título. Use () para aplicar gradiente colorido.
               </FormDescription>
               <FormMessage />
@@ -92,15 +96,19 @@ export function InspirationalSectionTextsForm({ configs }: InspirationalSectionT
           control={form.control}
           name="title"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Título ()</FormLabel>
+            <FormItem className="space-y-3">
+              <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                <Sparkles className="w-3 h-3 text-gray-400" />
+                Título
+              </FormLabel>
               <FormControl>
                 <Input 
                   placeholder="Pensamento do (Dia)" 
                   {...field} 
+                  className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-purple-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
                 />
               </FormControl>
-              <FormDescription>
+              <FormDescription className="text-xs text-gray-500 bg-gray-50/80 p-2 rounded-lg">
                 Título principal da seção. Use () para aplicar gradiente colorido.
               </FormDescription>
               <FormMessage />
@@ -112,17 +120,20 @@ export function InspirationalSectionTextsForm({ configs }: InspirationalSectionT
           control={form.control}
           name="description"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>Descrição</FormLabel>
+            <FormItem className="space-y-3">
+              <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
+                <FileText className="w-3 h-3 text-gray-400" />
+                Descrição
+              </FormLabel>
               <FormControl>
                 <Textarea 
                   placeholder="Reflexões que inspiram crescimento e bem-estar emocional"
                   rows={2}
-                  className="resizable-textarea min-h-[60px]"
+                  className="resizable-textarea min-h-[60px] pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-green-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
                   {...field} 
                 />
               </FormControl>
-              <FormDescription>
+              <FormDescription className="text-xs text-gray-500 bg-gray-50/80 p-2 rounded-lg">
                 Descrição que aparece abaixo do título. Arraste o canto inferior direito para redimensionar.
               </FormDescription>
               <FormMessage />

@@ -84,23 +84,21 @@ export function ServicesSectionTextsForm({ configs }: ServicesSectionTextsFormPr
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
           name="badge"
           render={({ field }) => (
             <FormItem className="space-y-3">
               <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-                <div className="p-1 bg-blue-100 rounded">
-                  <Type className="w-3 h-3 text-blue-600" />
-                </div>
-                Subtítulo/Badge
+                <Type className="w-3 h-3 text-gray-400" />
+                Subtítulo (badge)
               </FormLabel>
               <FormControl>
                 <Input 
                   placeholder="SERVIÇOS" 
                   {...field} 
-                  className="pl-4 py-3 border-2 border-gray-200 focus:border-blue-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                  className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-blue-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
                 />
               </FormControl>
               <FormDescription className="text-xs text-gray-500 bg-gray-50/80 p-2 rounded-lg">
@@ -116,16 +114,14 @@ export function ServicesSectionTextsForm({ configs }: ServicesSectionTextsFormPr
           render={({ field }) => (
             <FormItem className="space-y-3">
               <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-                <div className="p-1 bg-purple-100 rounded">
-                  <Sparkles className="w-3 h-3 text-purple-600" />
-                </div>
+                <Sparkles className="w-3 h-3 text-gray-400" />
                 Título
               </FormLabel>
               <FormControl>
                 <Input 
                   placeholder="Como posso ajudar você?" 
                   {...field} 
-                  className="pl-4 py-3 border-2 border-gray-200 focus:border-purple-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
+                  className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-purple-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm"
                 />
               </FormControl>
               <FormDescription className="text-xs text-gray-500 bg-purple-50/80 p-2 rounded-lg border border-purple-100">
@@ -143,9 +139,7 @@ export function ServicesSectionTextsForm({ configs }: ServicesSectionTextsFormPr
           render={({ field }) => (
             <FormItem className="space-y-3">
               <FormLabel className="flex items-center gap-2 text-sm font-semibold text-gray-800">
-                <div className="p-1 bg-green-100 rounded">
-                  <FileText className="w-3 h-3 text-green-600" />
-                </div>
+                <FileText className="w-3 h-3 text-gray-400" />
                 Descrição
               </FormLabel>
               <FormControl>
@@ -153,7 +147,7 @@ export function ServicesSectionTextsForm({ configs }: ServicesSectionTextsFormPr
                   placeholder="Oferecendo cuidado personalizado e especializado para cada momento da sua jornada de crescimento pessoal" 
                   rows={4} 
                   {...field} 
-                  className="pl-4 py-3 border-2 border-gray-200 focus:border-green-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm resize-none"
+                  className="pl-4 py-3 mt-2 border-2 border-gray-200 focus:border-green-500 rounded-xl transition-all duration-200 bg-white/80 backdrop-blur-sm resize-none"
                 />
               </FormControl>
               <FormDescription className="text-xs text-gray-500 bg-green-50/80 p-2 rounded-lg border border-green-100">
