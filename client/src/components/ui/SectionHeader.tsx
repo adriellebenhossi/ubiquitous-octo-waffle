@@ -72,11 +72,32 @@ export function SectionHeader({
     
     if (sectionKey && sectionColors && sectionColors[sectionKey]) {
       const sectionConfig = sectionColors[sectionKey];
-      // Priorizar gradientColors[0] para consistência com o sistema admin
+      // Priorizar gradientColors[0], mas evitar cores muito claras
       if (sectionConfig.gradientColors && sectionConfig.gradientColors.length > 0) {
         badgeColor = sectionConfig.gradientColors[0];
+        
+        // Se a primeira cor é muito clara (como #ffffff), usar a segunda cor ou quoteIconColor
+        if (badgeColor === '#ffffff' || badgeColor === '#f8fafc' || badgeColor.toLowerCase().includes('fff')) {
+          if (sectionConfig.gradientColors.length > 1) {
+            badgeColor = sectionConfig.gradientColors[1];
+          } else if (sectionConfig.quoteIconColor) {
+            badgeColor = sectionConfig.quoteIconColor;
+          }
+        }
       } else if (sectionConfig.backgroundColor) {
         badgeColor = sectionConfig.backgroundColor;
+      }
+    } else {
+      // Fallback para seção specialties se não encontrada
+      if (sectionKey === 'specialties' && sectionColors) {
+        // Tentar usar as cores de about ou outra seção similar como fallback
+        const fallbackConfig = sectionColors['about'] || sectionColors['services'] || Object.values(sectionColors)[0];
+        if (fallbackConfig && typeof fallbackConfig === 'object' && 'gradientColors' in fallbackConfig) {
+          const config = fallbackConfig as any;
+          if (config.gradientColors && config.gradientColors.length > 0) {
+            badgeColor = config.gradientColors[0];
+          }
+        }
       }
     }
 
@@ -98,10 +119,18 @@ export function SectionHeader({
       if (CustomIcon) BadgeIcon = CustomIcon;
     }
 
+    // Helper para converter hex para rgba
+    const hexToRgba = (hex: string, alpha: number) => {
+      const r = parseInt(hex.slice(1, 3), 16);
+      const g = parseInt(hex.slice(3, 5), 16);
+      const b = parseInt(hex.slice(5, 7), 16);
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    };
+
     // Estilos minimalistas e neutros
     const badgeStyles = {
-      backgroundColor: `${badgeColor}08`, // 3% opacity
-      borderColor: `${badgeColor}20`, // 12% opacity
+      backgroundColor: hexToRgba(badgeColor, 0.08), // 8% opacity
+      borderColor: hexToRgba(badgeColor, 0.2), // 20% opacity
       color: badgeColor,
     };
 
