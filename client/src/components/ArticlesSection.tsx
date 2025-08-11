@@ -16,7 +16,7 @@ import { FileText, Calendar, User, ExternalLink, ChevronRight, BookOpen, Brain, 
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { apiRequest } from "@/lib/queryClient";
-import { processTextWithGradient, hexToRgba } from "@/utils/textGradient";
+import { processTextWithGradient } from "@/utils/textGradient";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { useSectionColors } from "@/hooks/useSectionColors";
 import type { Article } from "@shared/schema";
@@ -118,7 +118,6 @@ export function ArticlesSection({ className = "" }: ArticlesSectionProps) {
   };
 
   const badgeHoverColor = getBadgeHoverColor(badgeGradient || 'pink-purple');
-  const badgeFirstColor = getBadgeHoverColor(badgeGradient || 'pink-purple'); // Mesma cor para consistência
 
   // Criar gradiente CSS para usar nos badges dos artigos
   const getGradientCSS = (gradientKey: string) => {
@@ -280,11 +279,14 @@ export function ArticlesSection({ className = "" }: ArticlesSectionProps) {
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             />
                           </div>
-                          {/* Badge minimalista sobreposto */}
+                          {/* Categoria sobreposta */}
                           {article.badge && (
-                            <div className="absolute top-4 left-4">
+                            <div className="absolute top-3 left-3">
                               <span 
-                                className="backdrop-blur-md bg-white/90 text-gray-700 px-3 py-1.5 rounded-full text-xs font-medium tracking-wide shadow-sm border border-white/20"
+                                className="text-white px-2 py-1 rounded text-xs font-semibold uppercase tracking-wide"
+                                style={{
+                                  background: decorativeLineGradient
+                                }}
                               >
                                 {article.badge}
                               </span>
@@ -294,17 +296,10 @@ export function ArticlesSection({ className = "" }: ArticlesSectionProps) {
                       )}
 
                       <div className="p-6 flex flex-col h-full">
-                        {/* Badge minimalista no conteúdo */}
+                        {/* Categoria - Texto simples e elegante */}
                         {article.badge && (
-                          <div className="mb-4">
-                            <span 
-                              className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium tracking-wide border"
-                              style={{
-                                backgroundColor: hexToRgba(badgeFirstColor, 0.08),
-                                color: badgeFirstColor,
-                                borderColor: hexToRgba(badgeFirstColor, 0.15)
-                              }}
-                            >
+                          <div className="mb-3">
+                            <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                               {article.badge}
                             </span>
                           </div>

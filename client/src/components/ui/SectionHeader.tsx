@@ -87,13 +87,13 @@ export function SectionHeader({
     primaryColor = getFirstColorFromGradient(gradientKey);
   }
   
-  // Estilo minimalista com opacidade mais sutil
-  backgroundColorWithOpacity = hexToRgba(primaryColor, 0.08);
+  // Aumentar opacidade para garantir visibilidade
+  backgroundColorWithOpacity = hexToRgba(primaryColor, 0.15);
   
   const badgeStyles = {
     backgroundColor: backgroundColorWithOpacity,
     color: primaryColor,
-    borderColor: hexToRgba(primaryColor, 0.15)
+    borderColor: hexToRgba(primaryColor, 0.2)
   };
 
   // Buscar ícone dinâmico se sectionKey for fornecida
@@ -105,15 +105,15 @@ export function SectionHeader({
 
   const content = (
     <div className={`${centered ? 'text-center' : ''} ${className}`}>
-      {/* Badge minimalista com ícone - condicional */}
+      {/* Badge padronizado com ícone - condicional */}
       {shouldShowBadge && (
-        <div className="flex items-center justify-center gap-2 mb-6">
+        <div className="flex items-center justify-center gap-2 mb-4">
           <div 
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-opacity-20 font-medium text-sm tracking-wide transition-all duration-300 hover:shadow-sm"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border font-medium text-xs"
             style={badgeStyles}
           >
-            {FinalIcon && <FinalIcon className="h-3.5 w-3.5 opacity-80" style={{ color: primaryColor }} />}
-            <span className="font-normal">{badge}</span>
+            {FinalIcon && <FinalIcon className="h-4 w-4" style={{ color: primaryColor }} />}
+            <span>{badge}</span>
           </div>
         </div>
       )}
