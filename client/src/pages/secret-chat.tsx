@@ -589,7 +589,7 @@ export default function SecretChat() {
                           <FormControl>
                             <Textarea
                               placeholder="aqui você pode compartilhar tudo que está no seu coração... este é um cantinho seguro onde você pode ser totalmente você mesma, sem julgamentos. somente a nsa, cia, dod ou fbi conseguem interceptar isso aqui. eu que criei 💛"
-                              className="min-h-80 sm:min-h-96 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400 resize-y text-sm sm:text-base elegant-textarea clarity-unmask secret-input data-hj-allow"
+                              className="min-h-32 sm:min-h-40 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400 resize-y text-sm sm:text-base elegant-textarea clarity-unmask secret-input data-hj-allow"
                               style={{ 
                                 color: '#ffffff !important',
                                 WebkitTextFillColor: '#ffffff !important'
