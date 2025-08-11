@@ -423,7 +423,7 @@ export function ModernSectionColorManager({ configs }: ModernSectionColorManager
                       })()}
                     </div>
                   </SelectTrigger>
-                  <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-xl">
+                  <SelectContent className="bg-white border-2 border-gray-200 rounded-xl shadow-xl max-h-[400px] overflow-y-auto">
                     {sections.map((section) => {
                       const Icon = section.icon;
                       const hasCustomColors = getSectionColors()[section.id];
