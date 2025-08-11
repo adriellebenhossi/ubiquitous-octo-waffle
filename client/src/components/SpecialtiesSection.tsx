@@ -24,6 +24,8 @@ import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import type { Specialty } from "@shared/schema";
 import { processTextWithGradient, processBadgeWithGradient, BADGE_GRADIENTS } from "@/utils/textGradient";
+import { SectionHeader } from "@/components/ui/SectionHeader";
+import { useSectionColors } from "@/hooks/useSectionColors";
 
 export default function SpecialtiesSection() {
   console.log('SpecialtiesSection: Componente está sendo renderizado');
@@ -67,6 +69,9 @@ export default function SpecialtiesSection() {
 
   const [isVisible, setIsVisible] = useState(true); // Forçar como true para debug
   const ref = useRef<HTMLDivElement>(null);
+  
+  // Apply section colors
+  useSectionColors();
 
   useEffect(() => {
     console.log('SpecialtiesSection: Intersection Observer configurado');
@@ -210,48 +215,16 @@ export default function SpecialtiesSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Header minimalista */}
-        <motion.div
-          className="text-center mb-20 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          {/* Badge redesenhado */}
-          <motion.div
-            className="inline-flex items-center justify-center mb-8"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isVisible ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <span className={`text-xs font-medium uppercase tracking-wide ${badgeGradientCSS ? `text-transparent bg-clip-text bg-gradient-to-r ${badgeGradientCSS}` : 'text-purple-600'}`}>
-              {sectionTexts.badge}
-            </span>
-          </motion.div>
-
-          {/* Título redesenhado */}
-          <motion.h2 
-            className="font-light text-2xl md:text-3xl lg:text-4xl text-slate-800 mb-2 tracking-tight leading-tight"
-            initial={{ opacity: 0, y: 15 }}
-            animate={isVisible ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            {(() => {
-              console.log('Processando título com gradiente:', sectionTexts.title, 'usando chave:', specialtiesGradientKey);
-              return processTextWithGradient(sectionTexts.title, specialtiesGradientKey);
-            })()}
-          </motion.h2>
-
-          {/* Descrição redesenhada */}
-          <motion.p 
-            className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light px-6 sm:px-8"
-            initial={{ opacity: 0 }}
-            animate={isVisible ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            {sectionTexts.description}
-          </motion.p>
-        </motion.div>
+        {/* Header padronizado com SectionHeader */}
+        <SectionHeader
+          badge={sectionTexts.badge}
+          title={sectionTexts.title}
+          description={sectionTexts.description}
+          badgeGradient={specialtiesGradientKey}
+          animated={true}
+          className="mb-20"
+          sectionKey="specialties"
+        />
 
         {/* Grid de especialidades redesenhado */}
         <div className="max-w-7xl mx-auto">
