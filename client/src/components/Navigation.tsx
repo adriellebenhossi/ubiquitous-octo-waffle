@@ -285,10 +285,10 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
           <div 
-            className="fixed inset-0 backdrop-blur-sm bg-white/20 bg-opacity-30" 
+            className="fixed inset-0 backdrop-blur-md bg-white/30 bg-opacity-50" 
             onClick={() => setIsMobileMenuOpen(false)} 
           />
-          <div className="fixed top-0 right-0 w-full max-w-xs h-full bg-white/95 backdrop-blur-md shadow-xl z-50 border-l border-white/20">
+          <div className="fixed top-0 right-0 w-full max-w-xs h-full bg-white/80 backdrop-blur-xl shadow-2xl z-50 border-l border-white/40">
             <div className="p-6 pt-20">
               <nav className="space-y-4">
                 {navigationSections.map((section) => (
