@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Lock, User, Heart, MessageCircle, Upload, Send, Terminal, Sparkles, Moon, Star, Flower2, Eye, EyeOff, Flame, Zap } from "lucide-react";
+import { Lock, User, Heart, MessageCircle, Upload, Send, Terminal, Sparkles, Moon, Star, Flower2, Eye, EyeOff, Flame, Zap, Infinity } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -724,6 +724,35 @@ export default function SecretChat() {
                 </AnimatePresence>
               </CardContent>
             </Card>
+          </motion.div>
+
+          {/* Infinity Symbol with Rotating Glow */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="flex justify-center mt-8 mb-6"
+          >
+            <div className="relative">
+              <motion.div
+                animate={{ 
+                  filter: [
+                    "drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))",
+                    "drop-shadow(0 0 12px rgba(255, 255, 255, 0.6))",
+                    "drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))"
+                  ]
+                }}
+                transition={{ 
+                  duration: 3, 
+                  repeat: Infinity, 
+                  ease: "easeInOut" 
+                }}
+              >
+                <Infinity 
+                  className="w-8 h-8 text-white opacity-60 hover:opacity-80 transition-opacity duration-300" 
+                />
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
