@@ -1410,18 +1410,18 @@
 
   /* Infinity Symbol Subtle Glow Animation */
   .infinity-glow {
-    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
     animation: infinity-subtle-glow 8s ease-in-out infinite;
   }
 
   @keyframes infinity-subtle-glow {
     0%, 100% { 
-      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
-      opacity: 0.4;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
+      opacity: 0.25;
     }
     50% { 
-      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
-      opacity: 0.6;
+      filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.8));
+      opacity: 0.4;
     }
   }
 

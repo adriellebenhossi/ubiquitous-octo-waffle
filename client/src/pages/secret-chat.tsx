@@ -589,7 +589,7 @@ export default function SecretChat() {
                           <FormControl>
                             <Textarea
                               placeholder="aqui você pode compartilhar tudo que está no seu coração... este é um cantinho seguro onde você pode ser totalmente você mesma, sem julgamentos. somente a nsa, cia, dod ou fbi conseguem interceptar isso aqui. eu que criei 💛"
-                              className="min-h-48 sm:min-h-40 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400 resize-y text-sm sm:text-base elegant-textarea clarity-unmask secret-input data-hj-allow"
+                              className="min-h-64 sm:min-h-40 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400 resize-y text-sm sm:text-base elegant-textarea clarity-unmask secret-input data-hj-allow"
                               style={{ 
                                 color: '#ffffff !important',
                                 WebkitTextFillColor: '#ffffff !important'
@@ -726,12 +726,12 @@ export default function SecretChat() {
             </Card>
           </motion.div>
 
-          {/* Infinity Symbol with Rotating Glow - Positioned at bottom */}
+          {/* Infinity Symbol with Rotating Glow - Mobile at bottom, Desktop with spacing */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+            className="mt-12 mb-8 flex justify-center sm:relative sm:static fixed bottom-6 left-1/2 transform -translate-x-1/2 sm:transform-none z-10"
           >
             <div className="relative">
               <Infinity 
