@@ -295,7 +295,7 @@ export function Navigation() {
                   <button
                     key={section.key}
                     onClick={() => scrollToSection(section.id)}
-                    className="block w-full text-left text-gray-700 hover:text-purple-soft transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/30 backdrop-blur-sm border border-transparent hover:border-white/20"
+                    className="block w-full text-left text-gray-700 hover:text-purple-soft transition-colors duration-300 py-3 px-4"
                   >
                     {section.name}
                   </button>
