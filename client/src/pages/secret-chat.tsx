@@ -733,24 +733,14 @@ export default function SecretChat() {
             transition={{ duration: 1, delay: 0.5 }}
             className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-10"
           >
-            <motion.div
-              animate={{ 
-                filter: [
-                  "drop-shadow(0 0 6px rgba(255, 255, 255, 0.2))",
-                  "drop-shadow(0 0 10px rgba(255, 255, 255, 0.4))",
-                  "drop-shadow(0 0 6px rgba(255, 255, 255, 0.2))"
-                ]
-              }}
-              transition={{ 
-                duration: 3, 
-                repeat: Infinity as number, 
-                ease: "easeInOut" 
-              }}
-            >
+            <div className="relative">
               <Infinity 
-                className="w-6 h-6 text-white opacity-40 hover:opacity-60 transition-opacity duration-300" 
+                className="w-6 h-6 text-white opacity-40 hover:opacity-60 transition-all duration-300 animate-pulse" 
+                style={{
+                  filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))"
+                }}
               />
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
