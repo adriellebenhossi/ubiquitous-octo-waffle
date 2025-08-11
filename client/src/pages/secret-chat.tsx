@@ -726,33 +726,31 @@ export default function SecretChat() {
             </Card>
           </motion.div>
 
-          {/* Infinity Symbol with Rotating Glow */}
+          {/* Infinity Symbol with Rotating Glow - Positioned at bottom */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="flex justify-center mt-8 mb-6"
+            className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-10"
           >
-            <div className="relative">
-              <motion.div
-                animate={{ 
-                  filter: [
-                    "drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))",
-                    "drop-shadow(0 0 12px rgba(255, 255, 255, 0.6))",
-                    "drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))"
-                  ]
-                }}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              >
-                <Infinity 
-                  className="w-8 h-8 text-white opacity-60 hover:opacity-80 transition-opacity duration-300" 
-                />
-              </motion.div>
-            </div>
+            <motion.div
+              animate={{ 
+                filter: [
+                  "drop-shadow(0 0 6px rgba(255, 255, 255, 0.2))",
+                  "drop-shadow(0 0 10px rgba(255, 255, 255, 0.4))",
+                  "drop-shadow(0 0 6px rgba(255, 255, 255, 0.2))"
+                ]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity as number, 
+                ease: "easeInOut" 
+              }}
+            >
+              <Infinity 
+                className="w-6 h-6 text-white opacity-40 hover:opacity-60 transition-opacity duration-300" 
+              />
+            </motion.div>
           </motion.div>
         </div>
       </div>
