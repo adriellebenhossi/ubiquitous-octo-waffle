@@ -1408,6 +1408,23 @@
     border-radius: 50%;
   }
 
+  /* Infinity Symbol Subtle Glow Animation */
+  .infinity-glow {
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+    animation: infinity-subtle-glow 8s ease-in-out infinite;
+  }
+
+  @keyframes infinity-subtle-glow {
+    0%, 100% { 
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+      opacity: 0.4;
+    }
+    50% { 
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.35));
+      opacity: 0.6;
+    }
+  }
+
 /* ====== ESTILOS JORNALÍSTICOS PARA ARTIGOS ====== */
 
 /* Layout jornalístico principal */

@@ -735,10 +735,7 @@ export default function SecretChat() {
           >
             <div className="relative">
               <Infinity 
-                className="w-6 h-6 text-white opacity-40 hover:opacity-60 transition-all duration-300 animate-pulse" 
-                style={{
-                  filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))"
-                }}
+                className="w-6 h-6 text-white opacity-40 hover:opacity-60 transition-all duration-300 infinity-glow" 
               />
             </div>
           </motion.div>
