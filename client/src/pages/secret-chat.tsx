@@ -731,7 +731,7 @@ export default function SecretChat() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mt-12 mb-8 flex justify-center sm:relative sm:static fixed bottom-6 left-1/2 transform -translate-x-1/2 sm:transform-none z-10"
+            className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-10 sm:relative sm:static sm:mt-12 sm:mb-8 sm:flex sm:justify-center sm:transform-none sm:left-auto sm:bottom-auto"
           >
             <div className="relative">
               <Infinity 
