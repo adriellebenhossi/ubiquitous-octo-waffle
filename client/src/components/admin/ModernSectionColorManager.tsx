@@ -125,7 +125,7 @@ export function ModernSectionColorManager({ configs }: ModernSectionColorManager
   // Seções disponíveis com design moderno
   const sections = [
     { id: "hero", name: "Principal", icon: Home, color: "from-blue-500 to-cyan-500", description: "Primeira seção" },
-    { id: "about", name: "Sobre", icon: User, color: "from-purple-500 to-pink-500", description: "Informações pessoais e especialidades" },
+    { id: "about", name: "Sobre mim e especialidades", icon: User, color: "from-purple-500 to-pink-500", description: "Informações pessoais e especialidades" },
     { id: "articles", name: "Artigos", icon: BookOpen, color: "from-blue-600 to-indigo-600", description: "Publicações científicas" },
     { id: "gallery", name: "Galeria", icon: Camera, color: "from-pink-500 to-rose-500", description: "Fotos do consultório" },
     { id: "services", name: "Serviços", icon: Briefcase, color: "from-green-500 to-emerald-500", description: "Lista de atendimentos" },
